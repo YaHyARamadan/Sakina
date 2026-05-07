@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:noorr/features/azkar_screen/ui/azkar_viewer_screen.dart';
 
 import '../../../core/core_widgets/custom_scaffold.dart';
@@ -31,16 +32,16 @@ class AzkarMainScreen extends StatelessWidget {
     return CustomScaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+          padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              const SizedBox(height: 15),
-              CustomText(
+              SizedBox(height: 15.h),
+               CustomText(
                 text: 'الأذكار',
                 style: MyTextStyle.appbarTitle,
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20.h),
               GestureDetector(
                 onTap: () => Navigator.push(
                   context,
@@ -53,12 +54,12 @@ class AzkarMainScreen extends StatelessWidget {
                 ),
                 child: Container(
                   width: double.infinity,
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 20,
-                    vertical: 22,
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 20.w,
+                    vertical: 22.h,
                   ),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(20.r),
                     gradient: const LinearGradient(
                       colors: [MyColors.primaryGold, MyColors.darkGold],
                       begin: Alignment.topLeft,
@@ -67,8 +68,8 @@ class AzkarMainScreen extends StatelessWidget {
                     boxShadow: [
                       BoxShadow(
                         color: MyColors.primaryGold.withOpacity(0.35),
-                        blurRadius: 18,
-                        offset: const Offset(0, 6),
+                        blurRadius: 18.r,
+                        offset: Offset(0, 6.h),
                       ),
                     ],
                   ),
@@ -80,45 +81,45 @@ class AzkarMainScreen extends StatelessWidget {
                         children: [
                           CustomText(
                             text: 'أذكار الصباح',
-                            style: MyTextStyle.welcomeTitle.copyWith(fontSize: 22),
+                            style: MyTextStyle.welcomeTitle.copyWith(fontSize: 22.sp),
                           ),
-                          const SizedBox(height: 4),
+                          SizedBox(height: 4.h),
                           CustomText(
                             text: 'ابدأ يومك بذكر الله',
                             style: MyTextStyle.lastReadInfo.copyWith(
                               color: MyColors.darkBackground.withOpacity(0.75),
-                              fontSize: 13,
+                              fontSize: 13.sp,
                               fontWeight: FontWeight.normal,
                             ),
                           ),
                         ],
                       ),
-                      const SizedBox(width: 16),
+                      SizedBox(width: 16.w),
                       Container(
-                        width: 56,
-                        height: 56,
+                        width: 56.r,
+                        height: 56.r,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           color: MyColors.darkBackground.withOpacity(0.15),
                         ),
-                        child: const Icon(
+                        child: Icon(
                           Icons.wb_sunny_rounded,
                           color: MyColors.darkBackground,
-                          size: 32,
+                          size: 32.r,
                         ),
                       ),
                     ],
                   ),
                 ),
               ),
-              const SizedBox(height: 50),
+              SizedBox(height: 50.h),
               Expanded(
                 child: GridView.builder(
                   physics: const BouncingScrollPhysics(),
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    crossAxisSpacing: 14,
-                    mainAxisSpacing: 20,
+                    crossAxisSpacing: 14.w,
+                    mainAxisSpacing: 20.h,
                     childAspectRatio: 1.15,
                   ),
                   itemCount: azkarCategories.length,
@@ -137,18 +138,18 @@ class AzkarMainScreen extends StatelessWidget {
                       child: Container(
                         decoration: BoxDecoration(
                           color: MyColors.cardBackground.withOpacity(0.55),
-                          borderRadius: BorderRadius.circular(18),
+                          borderRadius: BorderRadius.circular(18.r),
                           border: Border.all(
                             color: MyColors.white.withOpacity(0.07),
-                            width: 1.2,
+                            width: 1.2.w,
                           ),
                         ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Container(
-                              width: 56,
-                              height: 56,
+                              width: 56.r,
+                              height: 56.r,
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                                 color: MyColors.secondaryGold.withOpacity(0.15),
@@ -156,10 +157,10 @@ class AzkarMainScreen extends StatelessWidget {
                               child: Icon(
                                 category['icon'] as IconData,
                                 color: MyColors.primaryGold,
-                                size: 28,
+                                size: 28.r,
                               ),
                             ),
-                            const SizedBox(height: 12),
+                            SizedBox(height: 12.h),
                             CustomText(
                               text: category['title'].toString(),
                               style: MyTextStyle.cardSubtitle.copyWith(
@@ -174,7 +175,7 @@ class AzkarMainScreen extends StatelessWidget {
                   },
                 ),
               ),
-              const SizedBox(height: 14),
+              SizedBox(height: 14.h),
             ],
           ),
         ),
@@ -182,3 +183,4 @@ class AzkarMainScreen extends StatelessWidget {
     );
   }
 }
+

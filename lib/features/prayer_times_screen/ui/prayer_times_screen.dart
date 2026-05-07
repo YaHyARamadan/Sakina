@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/core_widgets/custom_scaffold.dart';
@@ -33,9 +34,9 @@ class PrayerTimesScreen extends StatelessWidget {
             child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
               child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 20,
-                  vertical: 16,
+                padding: EdgeInsets.symmetric(
+                  horizontal: 20.w,
+                  vertical: 16.h,
                 ),
                 child: Column(
                   children: [
@@ -43,10 +44,10 @@ class PrayerTimesScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Icon(
+                        Icon(
                           Icons.location_on_outlined,
                           color: MyColors.primaryGold,
-                          size: 22,
+                          size: 22.r,
                         ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.end,
@@ -63,14 +64,14 @@ class PrayerTimesScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 20),
+                    SizedBox(height: 20.h),
 
                     // Countdown Card
                     Container(
                       width: double.infinity,
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 22,
-                        horizontal: 20,
+                      padding: EdgeInsets.symmetric(
+                        vertical: 22.h,
+                        horizontal: 20.w,
                       ),
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
@@ -81,12 +82,12 @@ class PrayerTimesScreen extends StatelessWidget {
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
                         ),
-                        borderRadius: BorderRadius.circular(22),
+                        borderRadius: BorderRadius.circular(22.r),
                         boxShadow: [
                           BoxShadow(
                             color: MyColors.primaryGold.withOpacity(0.35),
-                            blurRadius: 18,
-                            offset: const Offset(0, 6),
+                            blurRadius: 18.r,
+                            offset: Offset(0, 6.h),
                           ),
                         ],
                       ),
@@ -96,12 +97,12 @@ class PrayerTimesScreen extends StatelessWidget {
                             text: 'الصلاة القادمة: $nextName',
                             style: MyTextStyle.nextPrayerStatus,
                           ),
-                          const SizedBox(height: 10),
+                          SizedBox(height: 10.h),
                           CustomText(
                             text: prayerProvider.formatCountdown(countdown),
                             style: MyTextStyle.countdownText,
                           ),
-                          const SizedBox(height: 6),
+                          SizedBox(height: 6.h),
                           CustomText(
                             text: 'متبقي على رفع الأذان',
                             style: MyTextStyle.countdownDesc,
@@ -110,7 +111,7 @@ class PrayerTimesScreen extends StatelessWidget {
                       ),
                     ),
 
-                    const SizedBox(height: 20),
+                    SizedBox(height: 20.h),
 
                     // Prayer List
                     Column(
@@ -124,7 +125,7 @@ class PrayerTimesScreen extends StatelessWidget {
                               : '--:--';
 
                           return Padding(
-                            padding: const EdgeInsets.only(bottom: 10),
+                            padding: EdgeInsets.only(bottom: 10.h),
                             child: PrayerCard(
                               name:
                                   prayerProvider.prayerInfo[i]['name']
@@ -140,7 +141,7 @@ class PrayerTimesScreen extends StatelessWidget {
                         },
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    SizedBox(height: 20.h),
                   ],
                 ),
               ),
@@ -151,3 +152,4 @@ class PrayerTimesScreen extends StatelessWidget {
     );
   }
 }
+

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../style/my_text_style.dart';
 import '../style/my_colors.dart';
@@ -28,23 +29,23 @@ class CustomAppbar extends StatelessWidget {
             shape: BoxShape.circle,
             border: Border.all(
               color: MyColors.primaryGold.withOpacity(0.4),
-              width: 1.5,
+              width: 1.5.w,
             ),
           ),
           child: CircleAvatar(
-            radius: 25,
+            radius: 25.r,
             backgroundColor: MyColors.primaryGold.withOpacity(0.13),
             child: icon != null
-                ? Icon(icon, color: MyColors.primaryGold, size: 28)
+                ? Icon(icon, color: MyColors.primaryGold, size: 28.r)
                 : Image.asset(
                     imgPath!,
-                    width: 28,
-                    height: 28,
+                    width: 28.w,
+                    height: 28.h,
                     color: MyColors.primaryGold,
                   ),
           ),
         ),
-        const SizedBox(width: 40),
+        SizedBox(width: 40.w),
         Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
@@ -52,13 +53,13 @@ class CustomAppbar extends StatelessWidget {
               text: text,
               style: MyTextStyle.appbarTitle.copyWith(
                 color: MyColors.secondaryGold,
-                fontSize: 28,
+                fontSize: 28.sp,
               ),
             ),
             if (describeText != null)
               CustomText(
                 text: describeText!,
-                style: MyTextStyle.appbarSubtitle.copyWith(fontSize: 16),
+                style: MyTextStyle.appbarSubtitle.copyWith(fontSize: 16.sp),
               ),
           ],
         ),
@@ -66,3 +67,4 @@ class CustomAppbar extends StatelessWidget {
     );
   }
 }
+

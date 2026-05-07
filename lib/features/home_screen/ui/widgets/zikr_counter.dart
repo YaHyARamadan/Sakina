@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/core_widgets/custom_text.dart';
 import '../../../../core/style/my_colors.dart';
 import '../../../../core/style/my_text_style.dart';
@@ -50,10 +51,10 @@ class _ZikrCounterState extends State<ZikrCounter> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         IconButton(
-          icon: const Icon(
+          icon: Icon(
             Icons.keyboard_arrow_right,
             color: MyColors.primaryGold,
-            size: 40,
+            size: 40.r,
           ),
           onPressed: _prevZikr,
         ),
@@ -67,7 +68,7 @@ class _ZikrCounterState extends State<ZikrCounter> {
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: MyColors.cardBackground.withOpacity(0.4),
-                  border: Border.all(color: MyColors.primaryGold, width: 4),
+                  border: Border.all(color: MyColors.primaryGold, width: 4.w),
                 ),
                 child: Center(
                   child: Column(
@@ -91,10 +92,10 @@ class _ZikrCounterState extends State<ZikrCounter> {
           ),
         ),
         IconButton(
-          icon: const Icon(
+          icon: Icon(
             Icons.keyboard_arrow_left,
             color: MyColors.primaryGold,
-            size: 40,
+            size: 40.r,
           ),
           onPressed: _nextZikr,
         ),
@@ -102,3 +103,4 @@ class _ZikrCounterState extends State<ZikrCounter> {
     );
   }
 }
+

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../features/azkar_screen/ui/azkar_main_screen.dart';
 import '../../features/home_screen/UI/home_screen.dart';
 import '../../features/prayer_times_screen/ui/prayer_times_screen.dart';
-import '../../features/quran_screen/ui/quran_screen.dart';
-
 import '../../features/quran_screen/ui/quran_screen.dart';
 import '../../features/settings_screen/ui/settings_screen.dart';
 
@@ -40,9 +39,9 @@ class _AppRouterState extends State<AppRouter> {
         currentIndex: currentIndex,
         selectedLabelStyle: MyTextStyle.tajawal.copyWith(
           fontWeight: FontWeight.w700,
-          fontSize: 11,
+          fontSize: 11.sp,
         ),
-        unselectedLabelStyle: MyTextStyle.tajawal.copyWith(fontSize: 10),
+        unselectedLabelStyle: MyTextStyle.tajawal.copyWith(fontSize: 10.sp),
         onTap: (index) {
           setState(() {
             currentIndex = index;
@@ -51,28 +50,28 @@ class _AppRouterState extends State<AppRouter> {
         items: [
           // ── الإعدادات ──────────────────────────────────────────
           BottomNavigationBarItem(
-            icon: const Icon(Icons.settings),
-            activeIcon: const Icon(Icons.settings, color: MyColors.primaryGold),
+            icon: Icon(Icons.settings, size: 24.r),
+            activeIcon: Icon(Icons.settings, color: MyColors.primaryGold, size: 24.r),
             label: 'الإعدادات',
           ),
 
           BottomNavigationBarItem(
-            icon: const Icon(Icons.access_time_outlined),
-            activeIcon: const Icon(Icons.access_time_filled),
+            icon: Icon(Icons.access_time_outlined, size: 24.r),
+            activeIcon: Icon(Icons.access_time_filled, size: 24.r),
             label: 'المواقيت',
           ),
           // ── الأذكار ────────────────────────────────────────────
           BottomNavigationBarItem(
             icon: Image.asset(
               'assets/images/islam.png',
-              width: 24,
-              height: 24,
+              width: 24.w,
+              height: 24.h,
               color: MyColors.white54,
             ),
             activeIcon: Image.asset(
               'assets/images/islam.png',
-              width: 24,
-              height: 24,
+              width: 24.w,
+              height: 24.h,
               color: MyColors.primaryGold,
             ),
             label: 'الأذكار',
@@ -81,14 +80,14 @@ class _AppRouterState extends State<AppRouter> {
           BottomNavigationBarItem(
             icon: Image.asset(
               'assets/images/quran.png',
-              width: 24,
-              height: 24,
+              width: 24.w,
+              height: 24.h,
               color: MyColors.white54,
             ),
             activeIcon: Image.asset(
               'assets/images/quran.png',
-              width: 24,
-              height: 24,
+              width: 24.w,
+              height: 24.h,
               color: MyColors.primaryGold,
             ),
             label: 'القرآن',
@@ -97,14 +96,14 @@ class _AppRouterState extends State<AppRouter> {
           BottomNavigationBarItem(
             icon: Image.asset(
               'assets/images/main.png',
-              width: 24,
-              height: 24,
+              width: 24.w,
+              height: 24.h,
               color: MyColors.white54,
             ),
             activeIcon: Image.asset(
               'assets/images/main.png',
-              width: 24,
-              height: 24,
+              width: 24.w,
+              height: 24.h,
               color: MyColors.primaryGold,
             ),
             label: 'الرئيسية',
@@ -114,3 +113,4 @@ class _AppRouterState extends State<AppRouter> {
     );
   }
 }
+

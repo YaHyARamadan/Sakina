@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:noorr/features/home_screen/ui/widgets/zikr_counter.dart';
 import 'package:provider/provider.dart';
 import 'package:hijri/hijri_calendar.dart';
-
 import '../../../core/core_widgets/custom_appbar.dart';
 import '../../../core/core_widgets/custom_scaffold.dart';
 import '../../../core/core_widgets/custom_text.dart';
@@ -13,6 +13,7 @@ import '../../sora_screen/ui/surah_viewer.dart';
 import '../UI/widgets/azker_card.dart';
 import '../../quran_screen/logic/quran_provider.dart';
 import '../../prayer_times_screen/logic/prayer_provider.dart';
+
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -26,7 +27,7 @@ class HomeScreen extends StatelessWidget {
     return CustomScaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(22.0),
+          padding: EdgeInsets.all(22.0.r),
           child: SingleChildScrollView(
             child: Column(
               children: [
@@ -35,7 +36,7 @@ class HomeScreen extends StatelessWidget {
                   describeText: hijriDate,
                   text: "السلام عليكم",
                 ),
-                const SizedBox(height: 20),
+                SizedBox(height: 20.h),
                 
                 // Quran Quick Access
                 Consumer<QuranProvider>(
@@ -53,7 +54,7 @@ class HomeScreen extends StatelessWidget {
                         ).then((_) => quranProvider.loadLastReadPage());
                       },
                       child: Container(
-                        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
+                        padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 30.w),
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
                             colors: [
@@ -63,13 +64,13 @@ class HomeScreen extends StatelessWidget {
                             begin: AlignmentGeometry.topLeft,
                             end: AlignmentGeometry.bottomRight,
                           ),
-                          borderRadius: BorderRadius.circular(20),
+                          borderRadius: BorderRadius.circular(20.r),
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            const Icon(Icons.menu_book, size: 55, color: MyColors.darkBackground),
-                            const SizedBox(width: 15),
+                            Icon(Icons.menu_book, size: 55.r, color: MyColors.darkBackground),
+                            SizedBox(width: 15.w),
                             Flexible(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.end,
@@ -96,7 +97,7 @@ class HomeScreen extends StatelessWidget {
                   },
                 ),
                 
-                const SizedBox(height: 20),
+                SizedBox(height: 20.h),
                 
                 // Azkar Sections
                 Row(
@@ -116,7 +117,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(width: 15),
+                    SizedBox(width: 15.w),
                     Expanded(
                       child: AzkarSection(
                         icon: Icons.wb_sunny_outlined,
@@ -135,9 +136,9 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
                 
-                const SizedBox(height: 20),
+                SizedBox(height: 20.h),
                 const ZikrCounter(),
-                const SizedBox(height: 20),
+                SizedBox(height: 20.h),
                 
                 // Next Prayer Info
                 Consumer<PrayerProvider>(
@@ -151,13 +152,13 @@ class HomeScreen extends StatelessWidget {
                     final nextTime = prayerProvider.getAllPrayerTimes()[nextIndex];
                     
                     return Container(
-                      height: 80,
-                      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+                      height: 80.h,
+                      padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 20.w),
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
-                        border: Border.all(color: MyColors.white.withOpacity(0.05), width: 1.5),
+                        border: Border.all(color: MyColors.white.withOpacity(0.05), width: 1.5.w),
                         color: MyColors.cardBackground.withOpacity(0.7),
-                        borderRadius: BorderRadius.circular(18),
+                        borderRadius: BorderRadius.circular(18.r),
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -182,18 +183,18 @@ class HomeScreen extends StatelessWidget {
                               ),
                             ],
                           ),
-                          const SizedBox(width: 10),
+                          SizedBox(width: 10.w),
                           Container(
                             alignment: Alignment.center,
-                            padding: const EdgeInsets.all(12),
+                            padding: EdgeInsets.all(12.r),
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
+                              borderRadius: BorderRadius.circular(20.r),
                               color: MyColors.secondaryGold.withOpacity(0.2),
                             ),
-                            child: const Icon(
+                            child: Icon(
                               Icons.access_time_outlined,
                               color: MyColors.primaryGold,
-                              size: 28,
+                              size: 28.r,
                             ),
                           ),
                         ],
@@ -209,3 +210,4 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+

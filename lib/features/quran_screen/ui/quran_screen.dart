@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:qcf_quran/qcf_quran.dart';
 import '../../../core/core_widgets/custom_appbar.dart';
@@ -14,16 +15,17 @@ class QuranScreen extends StatelessWidget {
     return CustomScaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+          padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.h),
           child: Column(
             children: [
               const CustomAppbar(
                 text: "القرآن الكريم",
                 imgPath: "assets/images/quran.png",
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20.h),
               Expanded(
                 child: ListView.builder(
+                  physics: const BouncingScrollPhysics(),
                   itemCount: 114,
                   itemBuilder: (context, index) {
                     final surahIndex = index + 1;
@@ -54,3 +56,4 @@ class QuranScreen extends StatelessWidget {
     );
   }
 }
+
