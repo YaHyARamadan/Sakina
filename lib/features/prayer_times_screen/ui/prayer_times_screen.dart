@@ -40,7 +40,6 @@ class PrayerTimesScreen extends StatelessWidget {
                 ),
                 child: Column(
                   children: [
-                    // Header
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -66,7 +65,6 @@ class PrayerTimesScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 20.h),
 
-                    // Countdown Card
                     Container(
                       width: double.infinity,
                       padding: EdgeInsets.symmetric(
@@ -113,7 +111,6 @@ class PrayerTimesScreen extends StatelessWidget {
 
                     SizedBox(height: 20.h),
 
-                    // Prayer List
                     Column(
                       children: List.generate(
                         prayerProvider.prayerInfo.length,

@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'package:noorr/features/quran_screen/ui/widgets/sora_card.dart';
 import 'package:qcf_quran/qcf_quran.dart';
 import '../../../core/core_widgets/custom_appbar.dart';
 import '../../../core/core_widgets/custom_scaffold.dart';
 import '../../sora_screen/ui/surah_viewer.dart';
-import '../../sora_screen/ui/widgets/sora_card.dart';
 
 class QuranScreen extends StatelessWidget {
   const QuranScreen({super.key});
@@ -56,4 +55,3 @@ class QuranScreen extends StatelessWidget {
     );
   }
 }
-

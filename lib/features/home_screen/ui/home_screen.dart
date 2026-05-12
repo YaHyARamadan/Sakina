@@ -38,7 +38,6 @@ class HomeScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 20.h),
                 
-                // Quran Quick Access
                 Consumer<QuranProvider>(
                   builder: (context, quranProvider, child) {
                     return GestureDetector(
@@ -99,7 +98,6 @@ class HomeScreen extends StatelessWidget {
                 
                 SizedBox(height: 20.h),
                 
-                // Azkar Sections
                 Row(
                   children: [
                     Expanded(
@@ -140,7 +138,6 @@ class HomeScreen extends StatelessWidget {
                 const ZikrCounter(),
                 SizedBox(height: 20.h),
                 
-                // Next Prayer Info
                 Consumer<PrayerProvider>(
                   builder: (context, prayerProvider, child) {
                     if (prayerProvider.isLoading) {

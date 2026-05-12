@@ -26,7 +26,6 @@ class SurahViewer extends StatefulWidget {
 
 class _SurahViewerState extends State<SurahViewer> {
   late int _currentPage;
-  bool _showOverlay = true;
 
   @override
   void initState() {
@@ -41,21 +40,13 @@ class _SurahViewerState extends State<SurahViewer> {
     super.dispose();
   }
 
-  void _toggleOverlay() {
-    setState(() {
-      _showOverlay = !_showOverlay;
-    });
-  }
 
 
   @override
   Widget build(BuildContext context) {
-    final quranProvider = context.watch<QuranProvider>();
-    final isDark = quranProvider.isDarkMode;
 
     int currentSurahNumber = 1;
     int currentJuzNumber = 1;
-    int currentHizbNumber = 1;
     int firstVerse = 1;
 
     try {
@@ -69,16 +60,11 @@ class _SurahViewerState extends State<SurahViewer> {
       debugPrint("Error calculating page info: $e");
     }
 
-    final bgColor = isDark ? const Color(0xFF121212) : MyColors.quranPageBg;
-    final textColor = isDark ? const Color(0xFFE0E0E0) : const Color(0xFF1A1A1A);
-    final accentColor = isDark ? MyColors.primaryGold : const Color(0xFF8B7355);
-
     return Scaffold(
-      backgroundColor: bgColor,
+      backgroundColor: MyColors.quranPageBg,
       body: SafeArea(
         child: Column(
           children: [
-            // ─── Header: Surah Name & Juz ──────────────────────
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 8.h),
               child: Row(
@@ -87,7 +73,7 @@ class _SurahViewerState extends State<SurahViewer> {
                   CustomText(
                     text: 'الجزء ${toArabicDigits(currentJuzNumber)}',
                     style: MyTextStyle.pageNumber.copyWith(
-                      color: accentColor,
+                      color: const Color(0xFF8B7355),
                       fontSize: 16.sp,
                       fontWeight: FontWeight.bold,
                     ),
@@ -95,7 +81,7 @@ class _SurahViewerState extends State<SurahViewer> {
                   CustomText(
                     text: getSurahNameArabic(currentSurahNumber),
                     style: MyTextStyle.pageNumber.copyWith(
-                      color: accentColor,
+                      color: const Color(0xFF8B7355),
                       fontSize: 18.sp,
                       fontWeight: FontWeight.bold,
                       fontFamily: 'UthmanicHafs',
@@ -105,7 +91,6 @@ class _SurahViewerState extends State<SurahViewer> {
               ),
             ),
 
-            // ─── Quran Reader Area ──────────────────────────────
             Expanded(
               child: Padding(
                 padding: EdgeInsets.symmetric(vertical: 0.h),
@@ -114,8 +99,8 @@ class _SurahViewerState extends State<SurahViewer> {
                   sp: 1.sp,
                   h: 0.88.h,
                   theme: QcfThemeData(
-                    pageBackgroundColor: bgColor,
-                    verseTextColor: textColor,
+                    pageBackgroundColor: MyColors.quranPageBg,
+                    verseTextColor: const Color(0xFF1A1A1A),
                   ),
                   onPageChanged: (page) {
                     setState(() => _currentPage = page);
@@ -125,36 +110,34 @@ class _SurahViewerState extends State<SurahViewer> {
                 ),
               ),
             ),
-            
-            // ─── Footer: Decorated Page Number ──────────────────
+
             Padding(
-              padding: EdgeInsets.only(bottom: 12.h),
+              padding: EdgeInsets.only(bottom: 6.h),
               child: Stack(
                 alignment: Alignment.center,
                 children: [
-                   // Decorative frame (Using a container with border if image not ready)
-                   Container(
-                     width: 60.r,
-                     height: 45.r,
-                     decoration: BoxDecoration(
-                       image: const DecorationImage(
-                         image: AssetImage('assets/images/ZakhrafaNum.png'),
-                         fit: BoxFit.contain,
-                       ),
-                     ),
-                     alignment: Alignment.center,
-                     child: Padding(
-                       padding: EdgeInsets.only(top: 4.h),
-                       child: CustomText(
+                  Container(
+                    width: 60.r,
+                    height: 45.r,
+                    decoration: BoxDecoration(
+                      image: const DecorationImage(
+                        image: AssetImage('assets/images/ZakhrafaNum.png'),
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                    alignment: Alignment.center,
+                    child: Padding(
+                      padding: EdgeInsets.only(top: 4.h),
+                      child: CustomText(
                         text: toArabicDigits(_currentPage),
                         style: MyTextStyle.pageNumber.copyWith(
-                          color: textColor,
+                          color: const Color(0xFF1A1A1A),
                           fontSize: 14.sp,
                           fontWeight: FontWeight.bold,
                         ),
-                       ),
-                     ),
-                   ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -164,5 +147,3 @@ class _SurahViewerState extends State<SurahViewer> {
     );
   }
 }
-
-

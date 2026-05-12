@@ -13,7 +13,7 @@ class PrayerProvider extends ChangeNotifier {
   double _latitude = 30.0444; 
   double _longitude = 31.2357;
   
-  String _cityName = 'القاهرة';
+  String _cityName = 'الاسكندرية';
   double _qiblaDirection = 0;
   bool _isSummerTime = false;
 
@@ -45,8 +45,7 @@ class PrayerProvider extends ChangeNotifier {
 
   Future<void> _loadSettings() async {
     final prefs = await SharedPreferences.getInstance();
-    // Default to true if system offset is already +3 (Egypt DST), else false 
-    // This is the "Smart Check" on first run
+
     if (!prefs.containsKey('isSummerTime')) {
        _isSummerTime = DateTime.now().timeZoneOffset.inHours >= 3;
        await prefs.setBool('isSummerTime', _isSummerTime);
@@ -114,8 +113,6 @@ class PrayerProvider extends ChangeNotifier {
     final params = CalculationMethod.egyptian.getParameters();
     params.madhab = Madhab.shafi;
 
-    // Manual Offset: Apply +60 minutes only if the switch is ON.
-    // This allows fixing times on phones that don't support auto-DST.
     if (_isSummerTime) {
       params.adjustments.fajr = 60;
       params.adjustments.sunrise = 60;
@@ -153,7 +150,7 @@ class PrayerProvider extends ChangeNotifier {
     for (int i = 0; i < times.length; i++) {
       if (_now.isBefore(times[i])) return i;
     }
-    return 0; // Next Day Fajr
+    return 0;
   }
 
   int getCurrentPrayerIndex() {

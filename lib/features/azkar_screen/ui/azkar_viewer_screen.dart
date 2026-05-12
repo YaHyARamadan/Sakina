@@ -82,8 +82,7 @@ class _AzkarViewerState extends State<AzkarViewer> {
           actions: [
             ElevatedButton(
               onPressed: () {
-                Navigator.pop(context); // Close dialog
-                Navigator.pop(context); // Return to main azkar screen
+                Navigator.pop(context);
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: MyColors.secondaryGold,
@@ -146,7 +145,6 @@ class _AzkarViewerState extends State<AzkarViewer> {
               padding: EdgeInsets.all(15.r),
               child: Column(
                 children: [
-                  // Top Bar
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -178,7 +176,6 @@ class _AzkarViewerState extends State<AzkarViewer> {
                   ),
                   SizedBox(height: 20.h),
 
-                  // Zikr Content
                   Flexible(
                     child: Container(
                       width: double.infinity,
@@ -244,7 +241,6 @@ class _AzkarViewerState extends State<AzkarViewer> {
 
                   SizedBox(height: 60.h),
 
-                  // Counter Stack
                   GestureDetector(
                     onTap: () => provider.increment(_showCompletionDialog),
                     behavior: HitTestBehavior.opaque,
@@ -338,7 +334,6 @@ class _AzkarViewerState extends State<AzkarViewer> {
                       ],
                     ),
                   ),
-
                   SizedBox(height: 30.h),
                 ],
               ),
@@ -349,4 +344,3 @@ class _AzkarViewerState extends State<AzkarViewer> {
     );
   }
 }
-

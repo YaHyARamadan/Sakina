@@ -17,14 +17,14 @@ class AppRouter extends StatefulWidget {
 }
 
 class _AppRouterState extends State<AppRouter> {
-  int currentIndex = 4; // الرئيسية افتراضيًا
+  int currentIndex = 4;
 
   final List<Widget> pages = [
-    const SettingsScreen(), // الإعدادات
-    const PrayerTimesScreen(), // المواقيت
-    const AzkarMainScreen(), // الأذكار
-    const QuranScreen(), // القرآن
-    const HomeScreen(), // الرئيسية
+    const SettingsScreen(),
+    const PrayerTimesScreen(),
+    const AzkarMainScreen(),
+    const QuranScreen(),
+    const HomeScreen(),
   ];
 
   @override
@@ -48,10 +48,13 @@ class _AppRouterState extends State<AppRouter> {
           });
         },
         items: [
-          // ── الإعدادات ──────────────────────────────────────────
           BottomNavigationBarItem(
             icon: Icon(Icons.settings, size: 24.r),
-            activeIcon: Icon(Icons.settings, color: MyColors.primaryGold, size: 24.r),
+            activeIcon: Icon(
+              Icons.settings,
+              color: MyColors.primaryGold,
+              size: 24.r,
+            ),
             label: 'الإعدادات',
           ),
 
@@ -60,7 +63,6 @@ class _AppRouterState extends State<AppRouter> {
             activeIcon: Icon(Icons.access_time_filled, size: 24.r),
             label: 'المواقيت',
           ),
-          // ── الأذكار ────────────────────────────────────────────
           BottomNavigationBarItem(
             icon: Image.asset(
               'assets/images/islam.png',
@@ -76,7 +78,6 @@ class _AppRouterState extends State<AppRouter> {
             ),
             label: 'الأذكار',
           ),
-          // ── القرآن ─────────────────────────────────────────────
           BottomNavigationBarItem(
             icon: Image.asset(
               'assets/images/quran.png',
@@ -92,7 +93,7 @@ class _AppRouterState extends State<AppRouter> {
             ),
             label: 'القرآن',
           ),
-          // ── الرئيسية ───────────────────────────────────────────
+
           BottomNavigationBarItem(
             icon: Image.asset(
               'assets/images/main.png',
@@ -113,4 +114,3 @@ class _AppRouterState extends State<AppRouter> {
     );
   }
 }
-

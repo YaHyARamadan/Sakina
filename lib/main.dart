@@ -7,7 +7,8 @@ import 'features/quran_screen/logic/quran_provider.dart';
 import 'features/prayer_times_screen/logic/prayer_provider.dart';
 import 'features/azkar_screen/logic/azkar_provider.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(
     MultiProvider(
       providers: [

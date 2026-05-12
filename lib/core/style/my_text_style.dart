@@ -3,12 +3,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'my_colors.dart';
 
 class MyTextStyle {
-  // ─── Base Styles ───────────────────────────────────────────
   static TextStyle tajawal = GoogleFonts.tajawal();
   static TextStyle cairo = GoogleFonts.cairo();
   static TextStyle amiri = GoogleFonts.amiri();
 
-  // ─── Specific Sizes & Weights (Original) ──────────────────
   static TextStyle tajawal40w800 = GoogleFonts.tajawal(
     fontSize: 40,
     fontWeight: FontWeight.w800,
@@ -22,7 +20,6 @@ class MyTextStyle {
     fontWeight: FontWeight.w800,
   );
 
-  // ─── Appbar Styles ────────────────────────────────────────
   static TextStyle appbarTitle = GoogleFonts.tajawal(
     fontSize: 22,
     fontWeight: FontWeight.bold,
@@ -33,7 +30,6 @@ class MyTextStyle {
     color: MyColors.textGray,
   );
 
-  // ─── Card Styles ──────────────────────────────────────────
   static TextStyle cardTitle = GoogleFonts.tajawal(
     fontSize: 18,
     fontWeight: FontWeight.bold,
@@ -49,7 +45,6 @@ class MyTextStyle {
     color: MyColors.primaryGold,
   );
 
-  // ─── Quran Screen Styles ──────────────────────────────────
   static TextStyle soraName = GoogleFonts.amiri(
     fontSize: 22,
     fontWeight: FontWeight.bold,
@@ -65,7 +60,6 @@ class MyTextStyle {
     color: MyColors.secondaryGold,
   );
 
-  // ─── Surah Viewer Styles ──────────────────────────────────
   static TextStyle surahHeader = GoogleFonts.amiri(
     fontSize: 20,
     fontWeight: FontWeight.bold,
@@ -77,7 +71,6 @@ class MyTextStyle {
     color: const Color(0xFF1A1A1A),
   );
 
-  // ─── Azkar Styles ─────────────────────────────────────────
   static TextStyle zikrText = GoogleFonts.tajawal(
     fontSize: 24,
     height: 1.7,
@@ -94,7 +87,6 @@ class MyTextStyle {
     color: MyColors.white,
   );
 
-  // ─── Home Screen Specific Styles ──────────────────────────
   static TextStyle welcomeTitle = GoogleFonts.tajawal(
     fontSize: 24,
     fontWeight: FontWeight.bold,
@@ -118,7 +110,6 @@ class MyTextStyle {
     color: MyColors.white,
   );
 
-  // ─── Prayer Times Styles ──────────────────────────────────
   static TextStyle prayerHeaderTitle = GoogleFonts.tajawal(
     fontSize: 20,
     fontWeight: FontWeight.bold,
@@ -144,7 +135,6 @@ class MyTextStyle {
     color: MyColors.darkBackground.withOpacity(0.7),
   );
 
-  // ─── Settings Styles ──────────────────────────────────────
   static TextStyle settingsTitle = GoogleFonts.tajawal(
     fontSize: 18,
     fontWeight: FontWeight.bold,
